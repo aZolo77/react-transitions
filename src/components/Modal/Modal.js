@@ -1,5 +1,4 @@
 import React from 'react';
-import Transition from 'react-transition-group/Transition';
 import CSSTransition from 'react-transition-group/CSSTransition';
 
 import './Modal.css';
@@ -11,22 +10,22 @@ const animationTiming = {
 
 const transitionMethods = {
   onEnter: () => {
-    console.log('on animation Enter');
+    // console.log('on animation Enter');
   },
   onEntering: () => {
-    console.log('on animation Entering');
+    // console.log('on animation Entering');
   },
   onEntered: () => {
-    console.log('on animation Entered');
+    // console.log('on animation Entered');
   },
   onExit: () => {
-    console.log('on animation Exit');
+    // console.log('on animation Exit');
   },
   onExiting: () => {
-    console.log('on animation Exiting');
+    // console.log('on animation Exiting');
   },
   onExited: () => {
-    console.log('on animation Exited');
+    // console.log('on animation Exited');
   }
 };
 
@@ -37,7 +36,13 @@ const modal = ({ closed, show }) => {
       timeout={animationTiming}
       mountOnEnter
       unmountOnExit
-      classNames="fade-slide"
+      classNames={{
+        enter: '',
+        enterActive: 'ModalOpen',
+        exit: '',
+        exitActive: 'ModalClose'
+      }}
+      // classNames="fade-slide"
       onEnter={transitionMethods.onEnter}
       onEntering={transitionMethods.onEntering}
       onEntered={transitionMethods.onEntered}
